@@ -1,7 +1,5 @@
-docs: README.md 업데이트
+docs: 프로젝트 템플릿 README.md 업데이트
 
-- Claude Code 지원 내용 추가
-- 프로젝트 템플릿 구조에 .claude/commands/ 포함
-- 지원 도구 섹션 추가 (Cursor IDE, Claude Code)
-- 워크플로우에 명확화 단계 추가
-- 디렉토리 구조 업데이트
+- 디렉토리 구조에 .cursor/commands/, .claude/commands/ 추가
+- Spec-Driven Development 섹션에 커맨드 목록 추가
+- 새 기능 추가 워크플로우 업데이트
