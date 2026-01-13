@@ -1,5 +1,5 @@
-feat: Claude Code에 /checklist 명령어 추가
+feat: Cursor와 Claude Code 명령어 이름 통일
 
-- .claude/commands/checklist.md 추가
-- 요구사항 품질 검증 체크리스트 생성 기능
-- CLAUDE.md에 명령어 설명 추가
+- Claude Code 명령어를 speckit.* 형식으로 변경
+- 모든 Cursor 명령어를 Claude Code에도 동일하게 추가
+- CLAUDE.md 업데이트하여 통일된 명령어 목록 표시

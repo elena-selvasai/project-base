@@ -14,7 +14,7 @@
 
 ## 사용 가능한 명령어
 
-### Cursor IDE 명령어 (.cursor/commands/)
+Cursor IDE와 Claude Code 모두 동일한 명령어를 사용합니다.
 
 | 명령어 | 설명 |
 |--------|------|
@@ -24,18 +24,10 @@
 | `/speckit.tasks` | PLAN.md에서 tasks.md 생성 |
 | `/speckit.implement` | 작업 구현 |
 | `/speckit.analyze` | 일관성 분석 |
-| `/speckit.checklist` | 요구사항 품질 체크리스트 생성 |
+| `/speckit.checklist [도메인]` | 요구사항 품질 체크리스트 생성 |
 | `/speckit.constitution` | 프로젝트 헌법 관리 |
-
-### Claude Code 명령어 (.claude/commands/)
-
-| 명령어 | 설명 |
-|--------|------|
-| `/spec [기능 설명]` | 새 기능의 SPEC.md 생성 |
-| `/plan [spec 경로]` | SPEC.md에 대한 PLAN.md 생성 |
-| `/tasks [plan 경로]` | PLAN.md에서 tasks.md 생성 |
-| `/implement [작업 설명]` | 특정 작업 구현 |
-| `/checklist [도메인]` | 요구사항 품질 체크리스트 생성 |
+| `/speckit.init` | 새 프로젝트 초기화 |
+| `/speckit.taskstoissues` | tasks를 GitHub Issues로 변환 |
 
 ## 핵심 원칙
 
