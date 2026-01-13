@@ -22,31 +22,8 @@ Spec-Driven Development를 위한 중앙 템플릿 저장소입니다.
 # 기본 사용
 D:\project\base\.specify\scripts\powershell\init-project.ps1 -ProjectName "my-app"
 
-# 다른 경로에 생성
+# 다른 경로에 생성 또는 옵션 확인
 D:\project\base\.specify\scripts\powershell\init-project.ps1 -ProjectName "my-app" -TargetPath "C:\workspace"
-
-# 샘플 스펙 포함
-D:\project\base\.specify\scripts\powershell\init-project.ps1 -ProjectName "my-app" -IncludeSampleSpec
-
-# Git 초기화 건너뛰기
-D:\project\base\.specify\scripts\powershell\init-project.ps1 -ProjectName "my-app" -SkipGit
-```
-
-### 생성되는 프로젝트 구조
-
-```
-my-app/
-├── .cursor/commands/       # Cursor IDE 커맨드
-├── .claude/commands/       # Claude Code 커맨드
-├── .specify/
-│   ├── memory/             # AI 컨텍스트
-│   ├── scripts/powershell/ # 자동화 스크립트
-│   └── templates/          # 템플릿
-├── docs/                   # 가이드 문서
-├── specs/                  # 기능 명세서
-├── constitution.md         # 프로젝트 헌법
-├── CLAUDE.md               # Claude Code 컨텍스트
-└── .gitignore
 ```
 
 ## 디렉토리 구조
@@ -157,20 +134,11 @@ D:\project\base\
 
 ## 커맨드 목록
 
-Cursor IDE와 Claude Code 모두 동일한 커맨드를 지원합니다.
+Cursor IDE와 Claude Code 모두 동일한 `/speckit.xxx` 형식의 커맨드를 지원합니다.
 
-| 커맨드 | 설명 |
-|--------|------|
-| `/speckit.init` | 신규 프로젝트 초기화 |
-| `/speckit.specify` | 스펙 작성 |
-| `/speckit.clarify` | 명확화 요청 |
-| `/speckit.plan` | 플랜 수립 |
-| `/speckit.tasks` | 태스크 분해 |
-| `/speckit.implement` | 구현 실행 |
-| `/speckit.analyze` | 스펙 분석 |
-| `/speckit.checklist` | 체크리스트 생성 |
-| `/speckit.constitution` | 헌법 관리 |
-| `/speckit.taskstoissues` | 태스크를 이슈로 변환 |
+**주요 커맨드**: specify (스펙 작성) → clarify (명확화) → plan (플랜 수립) → tasks (태스크 분해) → implement (구현)
+
+전체 커맨드 목록과 상세 사용법은 [Spec-Kit 가이드](docs/spec-kit-guide.md)를 참조하세요.
 
 ## 지원 도구
 

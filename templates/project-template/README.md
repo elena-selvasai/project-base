@@ -89,17 +89,11 @@ This project follows the Spec-Kit methodology.
 
 ### 사용 가능한 커맨드
 
-Cursor IDE와 Claude Code 모두 동일한 커맨드를 지원합니다.
+이 프로젝트는 Spec-Kit 방법론을 따릅니다. 
 
-| 커맨드 | 설명 |
-|--------|------|
-| `/speckit.specify` | 스펙 작성 |
-| `/speckit.clarify` | 명확화 요청 |
-| `/speckit.plan` | 플랜 수립 |
-| `/speckit.tasks` | 태스크 분해 |
-| `/speckit.implement` | 구현 실행 |
-| `/speckit.analyze` | 스펙 분석 |
-| `/speckit.checklist` | 체크리스트 생성 |
+**주요 워크플로우**: `/speckit.specify` → `/speckit.plan` → `/speckit.tasks` → `/speckit.implement`
+
+전체 커맨드 목록은 프로젝트의 Spec-Kit 문서를 참조하세요.
 
 ### 새 기능 추가하기
 
