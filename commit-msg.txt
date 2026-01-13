@@ -1,0 +1,7 @@
+feat: Cursor와 Claude Code 명령어 통합
+
+- 프로젝트 템플릿에 .cursor/commands/ 추가 (Cursor IDE용)
+- 프로젝트 템플릿에 .claude/commands/ 추가 (Claude Code용)
+- CLAUDE.md 업데이트하여 두 도구의 명령어 모두 설명
+- Cursor 명령어: speckit.specify, speckit.plan, speckit.tasks 등
+- Claude Code 명령어: /spec, /plan, /tasks, /implement
