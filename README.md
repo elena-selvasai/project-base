@@ -9,6 +9,7 @@ Spec-Driven Development를 위한 중앙 템플릿 저장소입니다.
 ### 주요 기능
 
 - **Cursor IDE 커맨드**: `/speckit.xxx` 형식의 워크플로우 커맨드
+- **Claude Code 커맨드**: Cursor와 동일한 `/speckit.xxx` 커맨드 지원
 - **PowerShell 자동화**: 브랜치 생성, 스펙 파일 초기화 등 자동화 스크립트
 - **통합 템플릿**: 스펙, 플랜, 태스크, 헌법 템플릿
 - **상세 가이드**: 방법론 가이드 및 베스트 프랙티스 문서
@@ -36,6 +37,7 @@ D:\project\base\.specify\scripts\powershell\init-project.ps1 -ProjectName "my-ap
 ```
 my-app/
 ├── .cursor/commands/       # Cursor IDE 커맨드
+├── .claude/commands/       # Claude Code 커맨드
 ├── .specify/
 │   ├── memory/             # AI 컨텍스트
 │   ├── scripts/powershell/ # 자동화 스크립트
@@ -43,6 +45,7 @@ my-app/
 ├── docs/                   # 가이드 문서
 ├── specs/                  # 기능 명세서
 ├── constitution.md         # 프로젝트 헌법
+├── CLAUDE.md               # Claude Code 컨텍스트
 └── .gitignore
 ```
 
@@ -57,7 +60,7 @@ D:\project\base\
 │       ├── speckit.clarify.md
 │       ├── speckit.constitution.md
 │       ├── speckit.implement.md
-│       ├── speckit.init.md         # 프로젝트 초기화
+│       ├── speckit.init.md
 │       ├── speckit.plan.md
 │       ├── speckit.specify.md
 │       ├── speckit.tasks.md
@@ -71,7 +74,7 @@ D:\project\base\
 │   │       ├── check-prerequisites.ps1
 │   │       ├── common.ps1
 │   │       ├── create-new-feature.ps1
-│   │       ├── init-project.ps1    # 프로젝트 초기화 스크립트
+│   │       ├── init-project.ps1
 │   │       ├── setup-plan.ps1
 │   │       └── update-agent-context.ps1
 │   └── templates/
@@ -88,10 +91,15 @@ D:\project\base\
 │   ├── spec-kit-guide.md       # 상세 방법론 가이드
 │   └── troubleshooting.md      # 문제 해결
 │
-├── templates/                  # 프로젝트 템플릿
+├── templates/
 │   ├── constitution-template.md
 │   ├── plan-template.md
-│   ├── project-template/
+│   ├── project-template/       # 프로젝트 템플릿
+│   │   ├── .cursor/commands/   # Cursor 커맨드
+│   │   ├── .claude/commands/   # Claude Code 커맨드
+│   │   ├── CLAUDE.md           # Claude Code 컨텍스트
+│   │   ├── constitution.md
+│   │   └── README.md
 │   └── spec-template.md
 │
 ├── constitution.md             # 워크스페이스 헌법
@@ -108,28 +116,37 @@ D:\project\base\
 
 ```
 사용자 스토리, 수용 기준, 기술 요구사항 정의
-→ specs/SPEC-XXX-feature-name.md 생성
+→ specs/[feature-name]/SPEC.md 생성
 ```
 
-### 2. 플랜 수립 (`/speckit.plan`)
+### 2. 명확화 (`/speckit.clarify`)
+
+스펙의 불명확한 부분을 명확화합니다.
+
+```
+모호한 요구사항 식별, 질문 및 답변
+→ SPEC.md 업데이트
+```
+
+### 3. 플랜 수립 (`/speckit.plan`)
 
 스펙을 기반으로 구현 전략을 수립합니다.
 
 ```
 아키텍처 결정, 의존성 분석, 리스크 식별
-→ specs/SPEC-XXX-feature-name.plan.md 생성
+→ specs/[feature-name]/PLAN.md 생성
 ```
 
-### 3. 태스크 분해 (`/speckit.tasks`)
+### 4. 태스크 분해 (`/speckit.tasks`)
 
 플랜을 구체적인 작업 단위로 분해합니다.
 
 ```
 세부 태스크, 추정 시간, 우선순위 정의
-→ specs/SPEC-XXX-feature-name.tasks.md 생성
+→ specs/[feature-name]/tasks.md 생성
 ```
 
-### 4. 구현 (`/speckit.implement`)
+### 5. 구현 (`/speckit.implement`)
 
 태스크를 순서대로 구현합니다.
 
@@ -138,20 +155,33 @@ D:\project\base\
 → 기능 구현 완료
 ```
 
-## Cursor 커맨드 목록
+## 커맨드 목록
+
+Cursor IDE와 Claude Code 모두 동일한 커맨드를 지원합니다.
 
 | 커맨드 | 설명 |
 |--------|------|
 | `/speckit.init` | 신규 프로젝트 초기화 |
 | `/speckit.specify` | 스펙 작성 |
+| `/speckit.clarify` | 명확화 요청 |
 | `/speckit.plan` | 플랜 수립 |
 | `/speckit.tasks` | 태스크 분해 |
 | `/speckit.implement` | 구현 실행 |
 | `/speckit.analyze` | 스펙 분석 |
 | `/speckit.checklist` | 체크리스트 생성 |
-| `/speckit.clarify` | 명확화 요청 |
 | `/speckit.constitution` | 헌법 관리 |
 | `/speckit.taskstoissues` | 태스크를 이슈로 변환 |
+
+## 지원 도구
+
+### Cursor IDE
+- `.cursor/commands/` 디렉토리의 커맨드 파일 사용
+- 슬래시 명령어로 워크플로우 실행
+
+### Claude Code
+- `.claude/commands/` 디렉토리의 커맨드 파일 사용
+- `CLAUDE.md` 파일로 프로젝트 컨텍스트 제공
+- Cursor와 동일한 명령어 체계
 
 ## PowerShell 스크립트
 
@@ -178,7 +208,7 @@ D:\project\base\
 
 ### 커맨드 확장
 
-`.cursor/commands/`에 새로운 커맨드를 추가하거나 기존 커맨드를 수정할 수 있습니다.
+`.cursor/commands/` 또는 `.claude/commands/`에 새로운 커맨드를 추가하거나 기존 커맨드를 수정할 수 있습니다.
 
 ### 스크립트 확장
 
