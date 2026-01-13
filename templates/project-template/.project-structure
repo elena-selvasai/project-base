@@ -1,0 +1,12 @@
+# Project Structure Placeholder
+
+This directory contains template folders that should exist in a new project.
+
+## Standard Directories
+
+- **src/**: Source code
+- **tests/**: Test files
+- **specs/**: Feature specifications
+- **docs/**: Additional documentation
+
+Create these directories when starting a new project.
