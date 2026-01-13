@@ -35,6 +35,7 @@
 | `/plan [spec 경로]` | SPEC.md에 대한 PLAN.md 생성 |
 | `/tasks [plan 경로]` | PLAN.md에서 tasks.md 생성 |
 | `/implement [작업 설명]` | 특정 작업 구현 |
+| `/checklist [도메인]` | 요구사항 품질 체크리스트 생성 |
 
 ## 핵심 원칙
 
