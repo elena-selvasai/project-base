@@ -30,19 +30,6 @@ D:\project\base\.specify\scripts\powershell\init-project.ps1 -ProjectName "my-ap
 
 ```
 D:\project\base\
-├── .cursor/
-│   └── commands/               # Cursor IDE 커맨드
-│       ├── speckit.analyze.md
-│       ├── speckit.checklist.md
-│       ├── speckit.clarify.md
-│       ├── speckit.constitution.md
-│       ├── speckit.implement.md
-│       ├── speckit.init.md
-│       ├── speckit.plan.md
-│       ├── speckit.specify.md
-│       ├── speckit.tasks.md
-│       └── speckit.taskstoissues.md
-│
 ├── .specify/
 │   ├── memory/
 │   │   └── constitution.md     # AI 컨텍스트 헌법
@@ -69,7 +56,6 @@ D:\project\base\
 │   └── troubleshooting.md      # 문제 해결
 │
 ├── templates/
-│   ├── constitution-template.md
 │   ├── plan-template.md
 │   ├── project-template/       # 프로젝트 템플릿
 │   │   ├── .cursor/commands/   # Cursor 커맨드
@@ -143,11 +129,11 @@ Cursor IDE와 Claude Code 모두 동일한 `/speckit.xxx` 형식의 커맨드를
 ## 지원 도구
 
 ### Cursor IDE
-- `.cursor/commands/` 디렉토리의 커맨드 파일 사용
+- `templates/project-template/.cursor/commands/` 커맨드가 새 프로젝트에 복사됨
 - 슬래시 명령어로 워크플로우 실행
 
 ### Claude Code
-- `.claude/commands/` 디렉토리의 커맨드 파일 사용
+- `templates/project-template/.claude/commands/` 커맨드가 새 프로젝트에 복사됨
 - `CLAUDE.md` 파일로 프로젝트 컨텍스트 제공
 - Cursor와 동일한 명령어 체계
 
@@ -176,7 +162,7 @@ Cursor IDE와 Claude Code 모두 동일한 `/speckit.xxx` 형식의 커맨드를
 
 ### 커맨드 확장
 
-`.cursor/commands/` 또는 `.claude/commands/`에 새로운 커맨드를 추가하거나 기존 커맨드를 수정할 수 있습니다.
+`templates/project-template/.cursor/commands/` 또는 `templates/project-template/.claude/commands/`에 새로운 커맨드를 추가하거나 기존 커맨드를 수정할 수 있습니다.
 
 ### 스크립트 확장
 
