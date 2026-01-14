@@ -4,7 +4,7 @@ Spec-Kit 기반 신규 프로젝트를 초기화합니다.
 
 ## 목적
 
-`D:\project\base` 템플릿을 기반으로 새로운 프로젝트를 생성합니다.
+`${GITHUB_BASE_PATH}` 템플릿을 기반으로 새로운 프로젝트를 생성합니다.
 - Cursor IDE 커맨드 복사
 - PowerShell 스크립트 복사
 - 템플릿 및 문서 복사
@@ -19,7 +19,7 @@ Spec-Kit 기반 신규 프로젝트를 초기화합니다.
    - 영문, 숫자, 하이픈만 사용 권장
    - 예: `my-awesome-app`, `admin-dashboard`
 
-2. **생성 경로** (선택, 기본값: `D:\project`)
+2. **생성 경로** (선택, 기본값: `${GITHUB_BASE_PATH}`)
    - 프로젝트가 생성될 상위 디렉토리
 
 3. **샘플 스펙 포함 여부** (선택, 기본값: 아니오)
@@ -33,16 +33,16 @@ Spec-Kit 기반 신규 프로젝트를 초기화합니다.
 
 ```powershell
 # 기본 사용
-D:\project\base\.specify\scripts\powershell\init-project.ps1 -ProjectName "{{PROJECT_NAME}}"
+${GITHUB_BASE_PATH}/.specify/scripts/powershell/init-project.ps1 -ProjectName "{{PROJECT_NAME}}"
 
 # 다른 경로에 생성
-D:\project\base\.specify\scripts\powershell\init-project.ps1 -ProjectName "{{PROJECT_NAME}}" -TargetPath "{{TARGET_PATH}}"
+${GITHUB_BASE_PATH}/.specify/scripts/powershell/init-project.ps1 -ProjectName "{{PROJECT_NAME}}" -TargetPath "{{TARGET_PATH}}"
 
 # 샘플 스펙 포함
-D:\project\base\.specify\scripts\powershell\init-project.ps1 -ProjectName "{{PROJECT_NAME}}" -IncludeSampleSpec
+${GITHUB_BASE_PATH}/.specify/scripts/powershell/init-project.ps1 -ProjectName "{{PROJECT_NAME}}" -IncludeSampleSpec
 
 # Git 초기화 건너뛰기
-D:\project\base\.specify\scripts\powershell\init-project.ps1 -ProjectName "{{PROJECT_NAME}}" -SkipGit
+${GITHUB_BASE_PATH}/.specify/scripts/powershell/init-project.ps1 -ProjectName "{{PROJECT_NAME}}" -SkipGit
 ```
 
 ### 방법 2: AI 어시스턴트가 스크립트 실행
@@ -96,7 +96,7 @@ D:\project\base\.specify\scripts\powershell\init-project.ps1 -ProjectName "{{PRO
 AI: 프로젝트 이름을 알려주세요.
 
 사용자: e-commerce-api
-AI: D:\project\e-commerce-api에 프로젝트를 생성하시겠습니까? 
+AI: ${GITHUB_BASE_PATH}/e-commerce-api에 프로젝트를 생성하시겠습니까? 
     (다른 경로를 원하시면 알려주세요)
 
 사용자: 응
@@ -104,7 +104,7 @@ AI: [PowerShell 스크립트 실행]
     프로젝트가 생성되었습니다!
     
     다음 단계:
-    1. cursor "D:\project\e-commerce-api" 로 프로젝트를 열어주세요
+    1. cursor "${GITHUB_BASE_PATH}/e-commerce-api" 로 프로젝트를 열어주세요
     2. constitution.md를 검토하고 프로젝트에 맞게 수정하세요
     3. /speckit.specify로 첫 번째 기능 스펙을 작성하세요
 ```

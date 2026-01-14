@@ -20,16 +20,17 @@ Spec-Driven Development를 위한 중앙 템플릿 저장소입니다.
 
 ```powershell
 # 기본 사용
-D:\project\base\.specify\scripts\powershell\init-project.ps1 -ProjectName "my-app"
+# (GitHub 레포 root 기준 경로)
+${GITHUB_BASE_PATH}/.specify/scripts/powershell/init-project.ps1 -ProjectName "my-app"
 
-# 다른 경로에 생성 또는 옵션 확인
-D:\project\base\.specify\scripts\powershell\init-project.ps1 -ProjectName "my-app" -TargetPath "C:\workspace"
+# 다른 경로에 생성 또는 옵션 확인 (GitHub 레포 root 기준)
+${GITHUB_BASE_PATH}/.specify/scripts/powershell/init-project.ps1 -ProjectName "my-app" -TargetPath "/your/absolute/path"
 ```
 
 ## 디렉토리 구조
 
 ```
-D:\project\base\
+${GITHUB_BASE_PATH}/
 ├── .specify/
 │   ├── memory/
 │   │   └── constitution.md     # AI 컨텍스트 헌법
