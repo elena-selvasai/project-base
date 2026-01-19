@@ -97,7 +97,7 @@ Write-Step "Project directory created"
 
 # 2. Copy .cursor/commands
 Write-Host "2. Copying Cursor commands..." -ForegroundColor White
-$CursorCommandsSource = Join-Path $BasePath ".cursor\commands"
+$CursorCommandsSource = Join-Path $BasePath "templates\project-template\.cursor\commands"
 $CursorCommandsDest = Join-Path $NewProjectPath ".cursor\commands"
 if (Test-Path $CursorCommandsSource) {
     New-Item -ItemType Directory -Path $CursorCommandsDest -Force | Out-Null
@@ -107,8 +107,20 @@ if (Test-Path $CursorCommandsSource) {
     Write-Warn "Cursor commands source not found: $CursorCommandsSource"
 }
 
-# 3. Copy .specify
-Write-Host "3. Copying Spec-Kit settings..." -ForegroundColor White
+# 3. Copy .claude/commands
+Write-Host "3. Copying Claude commands..." -ForegroundColor White
+$ClaudeCommandsSource = Join-Path $BasePath "templates\project-template\.claude\commands"
+$ClaudeCommandsDest = Join-Path $NewProjectPath ".claude\commands"
+if (Test-Path $ClaudeCommandsSource) {
+    New-Item -ItemType Directory -Path $ClaudeCommandsDest -Force | Out-Null
+    Copy-Item -Path "$ClaudeCommandsSource\*" -Destination $ClaudeCommandsDest -Force
+    Write-Step "Claude commands copied"
+} else {
+    Write-Warn "Claude commands source not found: $ClaudeCommandsSource"
+}
+
+# 4. Copy .specify
+Write-Host "4. Copying Spec-Kit settings..." -ForegroundColor White
 $SpecifySource = Join-Path $BasePath ".specify"
 $SpecifyDest = Join-Path $NewProjectPath ".specify"
 if (Test-Path $SpecifySource) {
@@ -118,8 +130,8 @@ if (Test-Path $SpecifySource) {
     Write-Warn "Spec-Kit settings not found: $SpecifySource"
 }
 
-# 4. Copy docs
-Write-Host "4. Copying documentation..." -ForegroundColor White
+# 5. Copy docs
+Write-Host "5. Copying documentation..." -ForegroundColor White
 $DocsSource = Join-Path $BasePath "docs"
 $DocsDest = Join-Path $NewProjectPath "docs"
 if (Test-Path $DocsSource) {
@@ -129,8 +141,8 @@ if (Test-Path $DocsSource) {
     Write-Warn "Documentation not found: $DocsSource"
 }
 
-# 5. Generate project constitution
-Write-Host "5. Generating project constitution..." -ForegroundColor White
+# 6. Generate project constitution
+Write-Host "6. Generating project constitution..." -ForegroundColor White
 $ConstitutionTemplate = Join-Path $BasePath ".specify\templates\project-constitution-template.md"
 $ProjectConstitution = Join-Path $NewProjectPath "constitution.md"
 
@@ -185,8 +197,8 @@ if (Test-Path $ConstitutionTemplate) {
     Write-Step "Default project constitution generated"
 }
 
-# 6. Copy .gitignore
-Write-Host "6. Copying .gitignore..." -ForegroundColor White
+# 7. Copy .gitignore
+Write-Host "7. Copying .gitignore..." -ForegroundColor White
 $GitignoreSource = Join-Path $BasePath ".gitignore"
 $GitignoreDest = Join-Path $NewProjectPath ".gitignore"
 if (Test-Path $GitignoreSource) {
@@ -228,9 +240,9 @@ logs/
     Write-Step "Default .gitignore created"
 }
 
-# 7. Create sample spec (optional)
+# 8. Create sample spec (optional)
 if ($IncludeSampleSpec) {
-    Write-Host "7. Creating sample spec..." -ForegroundColor White
+    Write-Host "8. Creating sample spec..." -ForegroundColor White
     $SpecTemplate = Join-Path $BasePath ".specify\templates\spec-template.md"
     $SampleSpec = Join-Path $NewProjectPath "specs\001-sample-feature.spec.md"
     if (Test-Path $SpecTemplate) {
@@ -239,9 +251,9 @@ if ($IncludeSampleSpec) {
     }
 }
 
-# 8. Initialize Git
+# 9. Initialize Git
 if (-not $SkipGit) {
-    Write-Host "8. Initializing Git repository..." -ForegroundColor White
+    Write-Host "9. Initializing Git repository..." -ForegroundColor White
     Push-Location $NewProjectPath
     try {
         git init 2>$null
