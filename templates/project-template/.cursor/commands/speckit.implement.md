@@ -132,4 +132,34 @@ You **MUST** consider the user input before proceeding (if not empty).
    - Confirm the implementation follows the technical plan
    - Report final status with summary of completed work
 
+10. **Build/Run Verification Loop** (REQUIRED after implementation):
+    - **Step 1**: Execute the appropriate build/run command based on tech stack:
+      - **Node.js**: `npm run build` or `npm start` or `npm test`
+      - **Python**: `python -m pytest` or `python main.py`
+      - **Java/Kotlin**: `./gradlew build` or `mvn compile`
+      - **Go**: `go build ./...` or `go test ./...`
+      - **Rust**: `cargo build` or `cargo test`
+      - **C#/.NET**: `dotnet build` or `dotnet test`
+      - Or check plan.md for custom build/test commands
+    
+    - **Step 2**: Analyze the output for errors:
+      - Compilation errors
+      - Type errors
+      - Test failures
+      - Runtime errors
+      - Linter errors
+    
+    - **Step 3**: If errors are found:
+      - Identify the root cause of each error
+      - Fix the errors in the relevant files
+      - **Go back to Step 1** and re-run the build/test
+      - Repeat until all errors are resolved
+    
+    - **Step 4**: If no errors:
+      - Report success with build/test output summary
+      - Mark all related tasks as [X] in tasks.md
+      - Proceed to final completion report
+
+    **Important**: Do NOT mark tasks as complete until the build/run verification passes without errors.
+
 Note: This command assumes a complete task breakdown exists in tasks.md. If tasks are incomplete or missing, suggest running `/speckit.tasks` first to regenerate the task list.
